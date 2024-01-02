@@ -2,8 +2,8 @@
 :root {
   --color-white: #fff;
   --color-grey: #c4c4c4;
-  --color-background: #f1eff4;
-  --color-text: #a7590c;
+  --color-background: #fbfafd;
+  --color-text: #2b241f;
 }
 
 /* End variables */
@@ -99,9 +99,9 @@ body {
   background: repeating-linear-gradient(
     -45deg,
     #f7f7f7,
-    #fffcfe 4px,
+    #fffcfe 3.5px,
     #191e63 4px,
-    #191e63 20px
+    #191e63 16px
   );
 }
 /* End top */
