@@ -1,0 +1,155 @@
+/* variables */
+:root {
+  --color-white: #fff;
+  --color-grey: #c4c4c4;
+  --color-background: #f1eff4;
+  --color-text: #a7590c;
+}
+
+/* End variables */
+
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  opacity: 1;
+  background: radial-gradient(
+      circle,
+      transparent 20%,
+      #f8edff 20%,
+      #f8edff 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        #f8edff 20%,
+        #f8edff 80%,
+        transparent 80%,
+        transparent
+      )
+      20px 20px,
+    linear-gradient(#bccce4 1.6px, transparent 1.6px) 0 -0.8px,
+    linear-gradient(90deg, #bccce4 1.6px, #f8edff 1.6px) -0.8px 0;
+  background-size: 40px 40px, 40px 40px, 20px 20px, 20px 20px;
+}
+
+/* End CSS Reset */
+
+/* global */
+.card {
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  min-width: 35rem;
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+/*End  global */
+
+/* top */
+.top {
+  height: 10rem;
+  background-color: #525ceb;
+  opacity: 0.8;
+  background: repeating-linear-gradient(
+    -45deg,
+    #f7f7f7,
+    #fffcfe 4px,
+    #191e63 4px,
+    #191e63 20px
+  );
+}
+/* End top */
+
+/* meddle*/
+.middle {
+  margin-top: -6rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card_image {
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  border: 0.5rem solid var(--color-background);
+}
+.card_title {
+  font-size: 2.2rem;
+  margin-block-start: 0.5rem;
+}
+.card_position {
+  font-size: 1.7rem;
+}
+/* End meddle */
+
+/*bottom */
+.bottom {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  border-top: 0.15rem solid var(--color-grey);
+}
+.with-border {
+  border-left: 0.15rem solid var(--color-grey);
+  border-right: 0.15rem solid var(--color-grey);
+}
+.social {
+  text-align: center;
+  padding: 1rem;
+}
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+.user {
+  font-size: 1.2rem;
+}
+/*End bottom */
