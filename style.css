@@ -1,9 +1,11 @@
 /* variables */
 :root {
+  --color-black: #000;
   --color-white: #fff;
   --color-grey: #c4c4c4;
   --color-background: #fbfafd;
   --color-text: #2b241f;
+  --transition-timing: 0.3s;
 }
 
 /* End variables */
@@ -53,27 +55,58 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background-color: #e4efff;
   opacity: 1;
-  background: radial-gradient(
-      circle,
-      transparent 20%,
-      #f8edff 20%,
-      #f8edff 80%,
-      transparent 80%,
-      transparent
+  background-image: linear-gradient(
+      30deg,
+      #5385d1 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #5385d1 87.5%,
+      #5385d1
     ),
-    radial-gradient(
-        circle,
-        transparent 20%,
-        #f8edff 20%,
-        #f8edff 80%,
-        transparent 80%,
-        transparent
-      )
-      20px 20px,
-    linear-gradient(#bccce4 1.6px, transparent 1.6px) 0 -0.8px,
-    linear-gradient(90deg, #bccce4 1.6px, #f8edff 1.6px) -0.8px 0;
-  background-size: 40px 40px, 40px 40px, 20px 20px, 20px 20px;
+    linear-gradient(
+      150deg,
+      #5385d1 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #5385d1 87.5%,
+      #5385d1
+    ),
+    linear-gradient(
+      30deg,
+      #649ef6 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #649ef6 87.5%,
+      #649ef6
+    ),
+    linear-gradient(
+      150deg,
+      #649ef6 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #649ef6 87.5%,
+      #649ef6
+    ),
+    linear-gradient(
+      60deg,
+      #649ef677 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #649ef677 75%,
+      #649ef677
+    ),
+    linear-gradient(
+      60deg,
+      #649ef677 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #649ef677 75%,
+      #649ef677
+    );
+  background-size: 32px 56px;
+  background-position: 0 0, 0 0, 16px 28px, 16px 28px, 0 0, 16px 28px;
 }
 
 /* End CSS Reset */
@@ -88,21 +121,101 @@ body {
   min-width: 35rem;
   overflow: hidden;
   background-color: var(--color-background);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
 }
 /*End  global */
+
+/*  Lights controller */
+.lights-controller {
+  position: absolute;
+  top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.lights_checkbox {
+  display: none;
+}
+.lights_label {
+  display: inline-block;
+  width: 4.2rem;
+  height: 2.2rem;
+  background-color: var(--color-black);
+  border-radius: 1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.3rem;
+  transition: var(--transition-timing);
+}
+.lights_label::after {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 1.8rem;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  transition: var(--transition-timing);
+}
+/* animation of lights controller button */
+.lights-controller:has(.lights_checkbox:checked) .lights_label::after {
+  transform: translateX(1.6rem);
+  background-color: rgb(255, 64, 64);
+}
+.lights-controller:has(.lights_checkbox:checked) .lights_label {
+  background-color: var(--color-background);
+}
+.container:has(.lights_checkbox:checked) .lights {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*  End Lights controller */
+/* Lights */
+.lights {
+  opacity: 0;
+  visibility: hidden;
+
+  position: absolute;
+  z-index: 2;
+  transition: var(--transition-timing);
+}
+.even-bulb {
+  animation: party2 0.3s infinite alternate;
+}
+.odd-bulb {
+  animation: party2 0.4s infinite alternate-reverse;
+}
+
+@keyframes party {
+  0% {
+    fill: #b86060;
+  }
+  100% {
+    fill: #a5558a;
+  }
+}
+@keyframes party2 {
+  0% {
+    fill: #3cfa02;
+  }
+  100% {
+    fill: #f91e7d;
+  }
+}
+/* End Lights */
 
 /* top */
 .top {
   height: 10rem;
-  background-color: #525ceb;
-  opacity: 0.8;
-  background: repeating-linear-gradient(
-    -45deg,
-    #f7f7f7,
-    #fffcfe 3.5px,
-    #191e63 4px,
-    #191e63 16px
-  );
+  background-color: #e4efff;
+  opacity: 1;
+  background-image: linear-gradient(135deg, #0b56c6 25%, transparent 25%),
+    linear-gradient(225deg, #2074f1 25%, transparent 25%),
+    linear-gradient(45deg, #094db3 25%, transparent 25%),
+    linear-gradient(315deg, #0d3877 25%, #e4efff 25%);
+  background-position: 16px 0, 16px 0, 0 0, 0 0;
+  background-size: 32px 32px;
+  background-repeat: repeat;
 }
 /* End top */
 
@@ -137,10 +250,17 @@ body {
   justify-content: space-around;
   border-top: 0.15rem solid var(--color-grey);
 }
-.with-border {
+.social:nth-child(2) {
   border-left: 0.15rem solid var(--color-grey);
   border-right: 0.15rem solid var(--color-grey);
 }
+.social:nth-child(3) {
+  border-right: 0.15rem solid var(--color-grey);
+}
+/* with-border {
+  border-left: 0.15rem solid var(--color-grey);
+  border-right: 0.15rem solid var(--color-grey);
+} */
 .social {
   text-align: center;
   padding: 1rem;
